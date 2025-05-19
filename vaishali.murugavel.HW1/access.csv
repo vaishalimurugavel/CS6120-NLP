@@ -1,0 +1,18 @@
+ip,ident,user,timestamp,method,resource,protocol,status,size,type,ip_class
+192.168.1.1,-,-,01/Jan/2025:00:00:01 +0000,GET,/,HTTP/1.1,200,123,successful,Class C
+192.168.1.2,-,admin,01/Jan/2025:00:00:05 +0000,GET,/admin,HTTP/1.1,403,45,suspicious,Class C
+192.168.1.3,-,-,01/Jan/2025:00:00:10 +0000,POST,/login,HTTP/1.1,200,232,successful,Class C
+192.168.1.3,-,-,01/Jan/2025:00:00:15 +0000,GET,/wp-admin,HTTP/1.1,404,50,suspicious,Class C
+10.0.0.1,-,-,01/Jan/2025:00:01:00 +0000,GET,/index.html,HTTP/1.1,301,0,other,Class A
+10.0.0.2,-,-,01/Jan/2025:00:01:05 +0000,HEAD,/images/logo.png,HTTP/1.1,200,0,successful,Class A
+10.0.0.3,-,user1,01/Jan/2025:00:01:10 +0000,GET,/images/logo.png,HTTP/1.1,200,1024,successful,Class A
+10.0.0.3,-,root,01/Jan/2025:00:01:15 +0000,GET,/secret/admin-panel,HTTP/1.1,200,5123,successful,Class A
+10.0.0.4,-,-,01/Jan/2025:00:02:00 +0000,PUT,/api/data,HTTP/1.1,201,80,successful,Class A
+10.0.0.5,-,-,01/Jan/2025:00:02:05 +0000,DELETE,/api/data/123,HTTP/1.0,500,666,server_error,Class A
+8.8.8.8,-,-,01/Jan/2025:00:03:00 +0000,GET,/wp-admin,HTTP/1.1,301,76,suspicious,Class A
+8.8.8.8,-,user2,01/Jan/2025:00:03:05 +0000,OPTIONS,/contact,HTTP/1.1,204,0,successful,Class A
+8.8.8.8,-,-,01/Jan/2025:00:03:10 +0000,HEAD,/contact,HTTP/1.1,403,0,client_error,Class A
+127.0.0.1,-,-,01/Jan/2025:00:04:00 +0000,GET,/test,HTTP/1.1,503,999,server_error,Unknown Class
+127.0.0.2,-,-,01/Jan/2025:00:05:00 +0000,POST,/api/update,HTTP/1.1,200,1500,successful,Unknown Class
+127.0.0.3,identd,user3,01/Jan/2025:00:05:10 +0000,GET,/unusual,HTTP/1.1,200,10,successful,Unknown Class
+10.10.10.10,-,-,01/Jan/2025:00:07:00 +0000,GET,/api/data,HTTP/1.1,404,23,client_error,Class A
