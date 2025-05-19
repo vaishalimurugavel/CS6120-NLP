@@ -16,7 +16,7 @@ class LogParser:
     pattern = re.compile(
         r'(?P<ip>\d+\.\d+\.\d+\.\d+) (?P<ident>[\w-]+) (?P<user>[\w-]+) '
         r'\[(?P<timestamp>\d{2}/[a-zA-Z]{3}/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4})\] '
-        r'"(?P<method>[A-Z]+) (?P<resource>/[\w/_.\-]*) (?P<protocol>[A-Z]+/\d\.\d)" '
+        r'"(?P<method>[A-Z]+) (?P<resource>/[\w/_.\-?=]*) (?P<protocol>[A-Z]+/\d(\.\d)*)" '
         r'(?P<status>\d{3}) (?P<size>\d+|-)'
     )
 
@@ -33,7 +33,6 @@ class LogParser:
         if not match:
             return None
         return match.groupdict()
-
 
 def classify_status(status, resource):
     """Classifies a log entry based on HTTP status code and resource path.
@@ -107,6 +106,7 @@ class LogProcessor:
                 for line in f:
                     parsed = self.parser.parse_log_line(line)
                     self.total_count += 1
+                    print('Line: ',line, 'parsed: ', parsed)
                     if parsed:
                         parsed['type'] = classify_status(parsed['status'], parsed['resource'])
                         parsed['ip_class'] = classify_ip(parsed['ip'])
@@ -200,3 +200,4 @@ if __name__ == '__main__':
 
     analytics = LogAnalytics(processor)
     analytics.analyze()
+    par = LogParser()

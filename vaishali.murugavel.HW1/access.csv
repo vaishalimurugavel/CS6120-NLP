@@ -14,5 +14,8 @@ ip,ident,user,timestamp,method,resource,protocol,status,size,type,ip_class
 8.8.8.8,-,-,01/Jan/2025:00:03:10 +0000,HEAD,/contact,HTTP/1.1,403,0,client_error,Class A
 127.0.0.1,-,-,01/Jan/2025:00:04:00 +0000,GET,/test,HTTP/1.1,503,999,server_error,Unknown Class
 127.0.0.2,-,-,01/Jan/2025:00:05:00 +0000,POST,/api/update,HTTP/1.1,200,1500,successful,Unknown Class
+127.0.0.2,-,-,01/Jan/2025:00:05:05 +0000,GET,/,HTTP/2,200,-,successful,Unknown Class
 127.0.0.3,identd,user3,01/Jan/2025:00:05:10 +0000,GET,/unusual,HTTP/1.1,200,10,successful,Unknown Class
+123.123.123.123,-,-,01/Jan/2025:00:06:05 +0000,POST,/secret?admin=true,HTTP/1.1,200,457,successful,Class A
 10.10.10.10,-,-,01/Jan/2025:00:07:00 +0000,GET,/api/data,HTTP/1.1,404,23,client_error,Class A
+10.10.10.11,-,-,01/Jan/2025:00:07:05 +0000,PUT,/very/strange/path?arg=1,HTTP/1.1,200,102,successful,Class A
